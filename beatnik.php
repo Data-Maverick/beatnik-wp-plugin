@@ -149,7 +149,7 @@ class beatnikArticleType {
 
 	public function __construct() {
 		add_action( 'init', array($this, 'create_post_type') );
-		add_action('add_meta_boxes', array($this, 'beatnik_sponsor_box') );
+		// add_action('add_meta_boxes', array($this, 'beatnik_sponsor_box') );
 		add_action('add_meta_boxes', array($this, 'beatnik_blurb_box') );
 		add_action('add_meta_boxes', array($this, 'beatnik_promo_box') );
 		add_action('save_post', array($this, 'beatnik_save_post') );
@@ -255,9 +255,7 @@ class beatnikArticleType {
 	}
 
 	public function beatnik_blurb_box_html() {
-	?>
-	<textarea name="beatnik_sponsor_name" id="beatnik_blurb" class="widefat"></textarea>
-	<?php
+		include(plugin_dir_path(__FILE__) . "views/admin/blurb.php");
 	}
 
 	public function beatnik_save_post($post_id) {
