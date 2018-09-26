@@ -29,9 +29,8 @@ jQuery(function($){
             var parent_container = $(e.currentTarget).parents(".beatnik_tile");
             var target = parent_container.data("tile_target");
             var id = parent_container.data("tile_id");
-            console.log({ id });
-            var addImgLink = parent_container.find('.upload-beatnik_' + target + '_logo'),
-                delImgLink = parent_container.find( '.delete-beatnik_' + target + '_logo'),
+            var addImgLink = parent_container.find('.upload-beatnik_image'),
+                delImgLink = parent_container.find( '.delete-beatnik_image'),
                 imgContainer = parent_container.find( '.beatnik_' + target + '_img_container'),
                 imgIdInput = parent_container.find( '.beatnik_' + target + '_img_id' );
             console.log({ id, target });
