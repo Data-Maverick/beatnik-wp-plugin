@@ -1,6 +1,6 @@
 # Beatnik Wordpress Plugin
 
-v0.0.2
+v0.1.2
 
 This Wordpress plugin adds a content type called "Beatnik" to the Daily Maverick Wordpress site, does some formatting for the front page when displaying a Beatnik article, and lets you do some custom stuff on the Beatnik article templates etc.
 
