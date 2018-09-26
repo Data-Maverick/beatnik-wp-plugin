@@ -1,0 +1,10 @@
+.beatnik .preview-img-container {
+    width: 200px;
+    height: 200px;
+    border: 1px #DDD solid;
+    overflow: hidden;
+    background-color: #EEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
