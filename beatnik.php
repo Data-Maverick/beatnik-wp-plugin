@@ -366,3 +366,32 @@ function beatnik_frontpage_display($post, $layout) {
 		include(plugin_dir_path(__FILE__) . "views/fullwidth.php");
 	}
 }
+
+add_action('init', 'registerBeatnikFlagTaxonomy', 1);
+
+function registerBeatnikFlagTaxonomy() {
+	$labels = array(
+        'name'                          => __('Flags', 'taxonomy general name'),
+        'singular_name'                 => __('Flag', 'taxonomy singular name'),
+        'search_items'                  => __('Search Flags'),
+        'popular_items'                 => __('Popular Flags'),
+        'all_items'                     => __('All Flags'),
+        'edit_item'                     => __('Edit Flag'),
+        'update_item'                   => __('Update Flag'),
+        'add_new_item'                  => __('Add Flag'),
+        'new_item_name'                 => __('New Flag'),
+        'separate_items_with_commas'    => __('Separate Flags with commas'),
+        'add_or_remove_items'           => __('Add or remove Flags'),
+        'choose_from_most_used'         => __('Choose from most used Flags'),
+        'menu_name'                     => __('Flags'),
+    );
+    register_taxonomy('flag', ['beatnik-article'], array(
+        'hierarchical'  => true,
+        'labels'        => $labels,
+        'show_ui'       => true,
+        'query_var'     => true,
+        'rewrite'       => array('slug' => 'flag'),
+		'show_in_rest'  => true
+    ));
+	register_taxonomy_for_object_type( 'flag', 'beatnik-article' );
+}
