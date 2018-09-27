@@ -99,6 +99,7 @@ class beatnikprojectMetabox {
 	public function format_rows( $label, $input ) {
 		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
 	}
+
 	public function save_fields( $post_id ) {
 		if ( ! isset( $_POST['beatnikproject_nonce'] ) )
 			return $post_id;
@@ -150,7 +151,6 @@ class beatnikArticleType {
 	public function __construct() {
 		add_action( 'init', array($this, 'create_post_type') );
 		// add_action('add_meta_boxes', array($this, 'beatnik_sponsor_box') );
-		add_action('add_meta_boxes', array($this, 'beatnik_blurb_box') );
 		add_action('add_meta_boxes', array($this, 'beatnik_promo_box') );
 		add_action('save_post', array($this, 'beatnik_save_post') );
 		// add_filter( 'tiny_mce_before_init', array($this, 'my_mce_before_init_insert_formats') );
@@ -168,6 +168,7 @@ class beatnikArticleType {
 			  'has_archive' => true,
 			  'rewrite' => array('slug' => 'paid-posts'),
 			  'taxonomies' => ['featured'],
+			  'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'post_tag'),
 			)
 		);
 	}
@@ -178,17 +179,6 @@ class beatnikArticleType {
             'Sponsor',  // Box title
             array($this, 'beatnik_sponsor_box_html'),  // Content callback, must be of type callable
             'beatnik-article'                   // Post type
-        );
-	}
-
-	public function beatnik_blurb_box() {
-        add_meta_box(
-            'beatnik_blurb_box',           // Unique ID
-            'Blurb',  // Box title
-            array($this, 'beatnik_blurb_box_html'),  // Content callback, must be of type callable
-            'beatnik-article',                   // Post type
-			'normal',
-			'high'
         );
 	}
 
@@ -254,14 +244,13 @@ class beatnikArticleType {
 		print "</div>";
 	}
 
-	public function beatnik_blurb_box_html() {
-		include(plugin_dir_path(__FILE__) . "views/admin/blurb.php");
-	}
-
 	public function beatnik_save_post($post_id) {
 		if (isset($_POST['beatnik_sponsor_logo-img-id'])){
 			update_post_meta($post_id, 'beatnik_sponsor_logo-img-id', $_POST['beatnik_sponsor_logo-img-id']);
 		}
+		// if (isset($_POST["excerpt"])) {
+		// 	update_post_meta($post_id, 'excerpt', $_POST['excerpt']);
+		// }
 		for($x = 0; $x < self::$beatnik_tile_count; $x++) {
 			$name = "beatnik_background_img_" . $x;
 			if (isset($_POST[$name])) {
