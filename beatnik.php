@@ -374,7 +374,7 @@ function registerBeatnikFlagTaxonomy() {
         'choose_from_most_used'         => __('Choose from most used Flags'),
         'menu_name'                     => __('Flags'),
     );
-    register_taxonomy('flag', ['beatnik-article'], array(
+    register_taxonomy('flag', ['beatnik-article', 'article', 'cartoon', 'opinion-piece'], array(
         'hierarchical'  => true,
         'labels'        => $labels,
         'show_ui'       => true,
