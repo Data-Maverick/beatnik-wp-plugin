@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Beatnik
- * @version 0.1.2
+ * @version 0.1.3
  */
 /*
 Plugin Name: Beatnik
 Plugin URI: https://www.dailymaverick.co.za
 Description: Publishes Beatnik articles on the Daily Maverick CMS
 Author: Jason Norwood-Young
-Version: 0.1.2
+Version: 0.1.3
 Author Email: jason@10layer.com
 */
 
