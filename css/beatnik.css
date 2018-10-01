@@ -98,7 +98,7 @@
 @media only screen and (max-width : 768px) {
     .beatnik-fp-threecolumn .beatnik-blurb {
         position: absolute;
-        top: 45%;
+        top: 35%;
         margin-left: 25%;
         width: 50%;
     }
@@ -106,8 +106,8 @@
     .beatnik-fp-threecolumn .beatnik-sponsor {
         position: absolute;
         bottom: 20px;
-        margin-left: 30%;
-        width: 40%;
+        margin-left: 25%;
+        width: 50%;
     }
 
     .beatnik-fp-wide .beatnik-blurb {
