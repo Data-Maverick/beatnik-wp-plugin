@@ -330,7 +330,7 @@ define("WIDE", 1);
 define("FULLWIDTH", 2);
 
 function beatnik_frontpage_display($post, $layout) {
-	wp_enqueue_style( 'beatnikStyleSheet' );
+	// wp_enqueue_style( 'beatnikStyleSheet' );
 	$title = get_the_title($post->ID);
     $postUrl = get_permalink($post);
     $authorId = $post->post_author;
@@ -347,6 +347,9 @@ function beatnik_frontpage_display($post, $layout) {
 	}
     $beatnikLogo = beatnik_logo_url();
 	$beatnik_images = $images[$layout];
+	echo "<style>";
+	include_once(plugin_dir_path(__FILE__) . "css/beatnik.css");
+	echo "</style>";
 	if ($layout === THREECOLUMN) {
 		include(plugin_dir_path(__FILE__) . "views/threecolumn.php");
 	} elseif ($layout === WIDE) {
